@@ -1,0 +1,30 @@
+<div class="mx-auto">
+    <div class="my-3 font-semibold">
+        <h1><%= @article.title %></h1>
+    </div>
+    <div class="my-3 font-semibold">
+        <% if @article.article_photo.attached? %>
+            <%= image_tag (@article.article_photo), alt: "profile", class: "rounded w-64 " %>
+        <% end %>
+    </div>
+
+    <div class="py-3"><%= @article.content %></div>
+    <div class="py-3"><%= @article.category %></div>
+    <div class="py-3"><%= @article.publisher.username %></div>
+    <div class="py-3"><%= @article.created_at %></div>
+    <div>
+        <% if current_publisher %>
+            <%= link_to "Edit Article", edit_article_path(@article), class: "text-blue-300" %>
+            <%= link_to "Delete Article", article_path(@article), data: {
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure?"
+            }, class: "text-green-300"%>
+        <% end %>
+    </div>
+    
+    <div class="py-5">
+        <%= link_to "Back to Articles",
+            articles_path, class: 
+            "py-2 text-green-500 p-1 m-2 border border-green-500" %>
+    </div>
+</div>

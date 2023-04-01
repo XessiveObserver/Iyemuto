@@ -1,0 +1,20 @@
+<div class="mx-auto">
+    <h1 class="my-2 font-medium text-2xl font-sans underline">Articles</h1>
+
+    <ul class="py-5 list-disc list-outside divide-y">
+        <% @articles.each do |article| %>
+            <% if article.publisher == current_publisher || !current_publisher %>
+                <li class="font-bold">
+                    <%= link_to article.title, article, class: "text-sky-500" %>,
+                    <%= time_tag article.created_at, "data-local": "time-ago"%>
+                </li>
+            <% end %>
+        <% end %>
+    </ul>
+
+    <% if current_publisher %>            
+        <%= link_to "New Article",
+        new_article_path, class: 
+        "py-2 text-sky-500 p-1 border border-sky-500" %>
+     <% end %>
+</div>

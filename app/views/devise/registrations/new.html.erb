@@ -1,0 +1,54 @@
+<div class="flex mx-auto  m-3 p-16 rounded shadow shadow-sky-500/50">
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <h2 class="text-center text-xl text-sky-500
+     bg-sky-200 p-3 font-semibold mb-5 rounded">Sign up</h2>
+
+    <div class="space-y-3 w-full max-w-sm">
+      <div class="field space-y-2">
+        <%= f.label :username, class: "text-sky-700 font-bold" %><br /">
+        <%= f.text_field :username, autofocus: true, autocomplete: "username",
+        class: "text-field" %>
+      </div>
+
+      <div class="field space-y-2">
+        <%= f.label :email, class: "text-sky-700 font-bold" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",
+        class: "email-field" %>
+      </div>
+
+      <div class="field space-y-2">
+        
+        <%= f.label :profile_picture, class: "text-sky-700 font-bold" %><br />
+        <%= f.file_field :profile_picture, autofocus: true, autocomplete: "profile_picture",
+        class: "file-field" %>
+      </div>
+
+      <div class="field space-y-2">
+        <%= f.label :bio, class: "text-sky-700 font-bold" %><br />
+        <%= f.rich_text_area :bio, autofocus: true, autocomplete: "bio", class: "rich-text" %>
+      </div>
+
+      <div class="field space-y-2">
+        <%= f.label :password, class: "text-sky-700 font-bold" %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password", class: "password-field" %>
+      </div>
+
+      <div class="field space-y-2">
+        <%= f.label :password_confirmation, class: "text-sky-700 font-bold" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "password-field" %>
+      </div>
+
+      <div class="actions my-3">
+        <%= f.submit "Sign up", class: "submit-field" %>
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  <% end %>
+
+</div>

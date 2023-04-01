@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer components {
+  .text-field {
+    @apply rounded form-input h-[3rem] w-full text-sky-700 font-normal
+        shadow-sm border-sky-300 focus:outline-none focus:border-sky-300 focus:ring-1 focus:ring-sky-500 ;
+  }
+  .email-field {
+    @apply rounded form-input h-[3rem] w-full text-sky-700 font-normal
+        shadow-sm border-sky-300 focus:outline-none focus:border-sky-300 focus:ring-1 focus:ring-sky-500 ;
+  }
+  .file-field {
+    @apply rounded form-input h-[3rem] m-0 w-full text-sky-700 font-normal
+        shadow-sm border-sky-300 focus:outline-none focus:border-sky-300 focus:ring-1 focus:ring-sky-500 ;
+  }
+  .rich-text {
+    @apply rounded form-input w-full relative  text-sky-700 font-normal
+        shadow-sm border-sky-300 focus:outline-none focus:border-sky-300 focus:ring-1 focus:ring-sky-500 ;
+  }
+  .password-field {
+    @apply rounded form-input h-[3rem] w-full text-sky-700 font-normal
+        shadow-sm border-sky-300 focus:outline-none focus:border-sky-300 focus:ring-1 focus:ring-sky-500 ;
+  }
+  .submit-field {
+    @apply text-white text-xl bg-sky-400 
+        p-3 w-full rounded cursor-pointer font-bold
+        hover:text-sky-50 hover:bg-sky-500;
+  }
+}
+
+
+@import 'actiontext.css';

@@ -1,0 +1,29 @@
+<nav class="flex flex-wrap items-center  justify-between w-full py-5 h-16 shadow shadow-stone-500/30  md:py-0 px-5
+          text-lg">
+  <div>
+    <%= link_to "Iyemuto", root_path, class: "text-2xl font-extrabold antialiased text-sky-500 hover:underline"%>
+  </div>
+ 
+  <div>
+    <%= link_to "Home", root_path, class: "font-bold antialiased text-sky-500 hover:underline"%>
+    <%= link_to "News", articles_path, class: "font-bold antialiased text-sky-500 hover:underline"%>
+  </div>
+  <div class="hidden w-full md:flex md:items-center md:justify-between md:w-auto " id="menu">
+    <ul class="text-base pt-4 md:flex md:justify-between md:pt-0 space-x-3">
+      <% if publisher_signed_in? %>
+        <li><%= link_to "Edit profile", edit_publisher_registration_path, class: "font-bold antialiased text-sky-700 hover:underline" %></li>
+      <li class="font-normal antialiased text-sky-700 hover:underline"> Welcome <%= current_publisher.username %> </li> 
+      <%= link_to "Sign out", destroy_publisher_session_path, data: { turbo_method: :delete }, class: "font-bold font-sans antialiased text-sky-500" %> 
+      
+        <li>
+          <%= image_tag (current_publisher.profile_picture), class: "h-8 w-8 rounded-full" %>
+        </li>
+       
+      <% else %>
+      <li><%= link_to "Sign in", new_publisher_session_path, class: "font-normal font-sans hover:underline antialiased text-sky-500" %></li> 
+      <li><%= link_to "Sign up", new_publisher_registration_path, class: "font-bold font-sans hover:underline antialiased text-sky-500" %></li> 
+      <% end %>
+    
+    </ul>
+  </div>
+</nav>

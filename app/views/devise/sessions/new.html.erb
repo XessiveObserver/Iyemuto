@@ -1,0 +1,33 @@
+<div class="flex mx-auto  m-3 p-16 rounded shadow shadow-sky-500/50">
+ 
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    
+      <h2 class="text-center text-xl text-sky-500
+      bg-sky-200 p-3 font-semibold mb-5 rounded">Log in</h2>
+    <div class="space-y-3 w-full">
+      <div class="field space-y-2">
+        <%= f.label :email, class: "text-sky-700 font-bold" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "email-field" %>
+      </div>
+
+      <div class="field space-y-2">
+        <%= f.label :password, class: "text-sky-700 font-bold" %><br />
+        <%= f.password_field :password, autocomplete: "current-password", class: "password-field" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="field space-y-2">
+          <%= f.check_box :remember_me, class: "rounded focus:ring-0" %>
+          <%= f.label :remember_me, class: "text-sky-700 font-bold p-2" %>
+        </div>
+      <% end %>
+
+      <div class="actions">
+        <%= f.submit "Log in", class: "submit-field" %>
+      </div>
+    </div>
+    <%= render "devise/shared/links" %>
+  <% end %>
+
+</div>

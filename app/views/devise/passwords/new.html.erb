@@ -1,0 +1,25 @@
+<div class="flex mx-auto  m-3 p-16 rounded shadow shadow-sky-500/50">
+  
+
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <h2 class="text-center text-xl text-sky-500
+     bg-sky-200 p-3 font-semibold mb-5 rounded">Forgot your password?</h2>
+
+    <div class="space-y-3 w-full">
+      <div class="field space-y-2">
+        <%= f.label :email, class: "text-sky-700 font-bold" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "email-field" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Send me reset password instructions", class: "submit-field" %>
+      </div>
+    </div>
+    <div class="text-center font-serif">
+      <%= render "devise/shared/links" %>
+    </div>
+    <% end %>
+
+</div>
