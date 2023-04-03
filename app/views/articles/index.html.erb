@@ -1,16 +1,22 @@
 <div class="mx-auto">
-    <h1 class="my-2 font-medium text-2xl font-sans underline">Articles</h1>
-
-    <ul class="py-5 list-disc list-outside divide-y">
-        <% @articles.each do |article| %>
-            <% if article.publisher == current_publisher || !current_publisher %>
-                <li class="font-bold">
-                    <%= link_to article.title, article, class: "text-sky-500" %>,
-                    <%= time_tag article.created_at, "data-local": "time-ago"%>
-                </li>
-            <% end %>
-        <% end %>
-    </ul>
+    
+    <div class="grid grid-cols-2 gap-2">
+        <div class="">
+        <h1 class="my-2 text-center font-medium text-2xl font-sans underline">Headlines</h1>
+            <ul class="py-5 list-disc list-outside divide-y">
+                <% @articles.each do |article| %>
+                    <% if article.publisher == current_publisher || !current_publisher %>
+                        <li class="font-bold list-none flex space-y-3 p-3">
+                            <p class="flex-1"><%= image_tag (article.article_photo), alt: "profile", class: "rounded w-full " %></p>
+                            <p class="flex-1 mx-3"><%= link_to article.title, article, class: "text-sky-500" %></p>
+                        </li>
+                    <% end %>
+                <% end %>
+            </ul>
+        </div>
+        <div class="">Side News</div>
+    </div>
+    
 
     <% if current_publisher %>            
         <%= link_to "New Article",

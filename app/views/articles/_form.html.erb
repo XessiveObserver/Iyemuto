@@ -1,36 +1,39 @@
-<%= form_with model: @article do |form| %>
-  <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-    <% @article.errors.full_messages_for(:title).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
 
-  <div>
-    <%= form.label :article_photo %><br>
-    <%= form.file_field :article_photo %>
-    <% @article.errors.full_messages_for(:article_photo).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-  
-    <div>
-        <%= form.label :content %><br>
-        <%= form.rich_text_area :content %><br>
-        <% @article.errors.full_messages_for(:content).each do |message| %>
-            <div><%= message %></div>
+  <%= form_with model: @article do |form| %>
+    <div class="space-y-3 w-full">
+      <div>
+        <%= form.label :title, class: "text-sky-700 font-semibold" %><br>
+        <% @article.errors.full_messages_for(:title).each do |message| %>
+          <div class="bg-red-100 text-red-500 font-semibold p-2 m-1">*<%= message %></div>
         <% end %>
-    </div>
-    <div>
-      <%= form.label :category %><br>
-      <%= form.text_field :category %>
-      <% @article.errors.full_messages_for(:category).each do |message| %>
-        <div><%= message %></div>
-      <% end %>
-    </div>
+        <%= form.text_field :title, class: "text-field" %>
+      </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+      <div>
+        <%= form.label :article_photo, class: "text-sky-700 font-bold" %><br>
+        <%= form.file_field :article_photo, class: "file-field" %>
+        <% @article.errors.full_messages_for(:article_photo).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+      
+        <div>
+            <%= form.label :content, class: "text-sky-700 font-bold" %><br>
+            <%= form.rich_text_area :content, class: "rich-text" %><br>
+            <% @article.errors.full_messages_for(:content).each do |message| %>
+                <div><%= message %></div>
+            <% end %>
+        </div>
+        <div>
+          <%= form.label :category, class: "text-sky-700 font-bold" %><br>
+          <%= form.text_field :category, class: "text-field" %>
+          <% @article.errors.full_messages_for(:category).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+
+      <div>
+        <%= form.submit(class: "text-sky-700 border border-2 border-sky-500 bg-sky-100 p-2 font-bold rounded cursor-pointer hover:text-stone-50 hover:bg-sky-600") %>
+      </div>
+    </div>
+  <% end %>

@@ -18,7 +18,7 @@
         shadow-sm border-sky-300 focus:outline-none focus:border-sky-300 focus:ring-1 focus:ring-sky-500 ;
   }
   .rich-text {
-    @apply rounded form-input w-full relative  text-sky-700 font-normal
+    @apply rounded h-full form-input w-full relative  text-sky-700 font-normal
         shadow-sm border-sky-300 focus:outline-none focus:border-sky-300 focus:ring-1 focus:ring-sky-500 ;
   }
   .password-field {
