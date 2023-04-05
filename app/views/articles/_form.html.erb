@@ -3,17 +3,17 @@
     <div class="space-y-3 w-full">
       <div>
         <%= form.label :title, class: "text-sky-700 font-semibold" %><br>
+        <%= form.text_field :title, class: "text-field" %>
         <% @article.errors.full_messages_for(:title).each do |message| %>
           <div class="bg-red-100 text-red-500 font-semibold p-2 m-1">*<%= message %></div>
         <% end %>
-        <%= form.text_field :title, class: "text-field" %>
       </div>
 
       <div>
         <%= form.label :article_photo, class: "text-sky-700 font-bold" %><br>
         <%= form.file_field :article_photo, class: "file-field" %>
         <% @article.errors.full_messages_for(:article_photo).each do |message| %>
-          <div><%= message %></div>
+          <div class="bg-red-100 text-red-500 font-semibold p-2 m-1"><%= message %></div>
         <% end %>
       </div>
       
@@ -21,19 +21,23 @@
             <%= form.label :content, class: "text-sky-700 font-bold" %><br>
             <%= form.rich_text_area :content, class: "rich-text" %><br>
             <% @article.errors.full_messages_for(:content).each do |message| %>
-                <div><%= message %></div>
+                <div class="bg-red-100 text-red-500 font-semibold p-2 m-1"><%= message %></div>
             <% end %>
         </div>
         <div>
           <%= form.label :category, class: "text-sky-700 font-bold" %><br>
           <%= form.text_field :category, class: "text-field" %>
           <% @article.errors.full_messages_for(:category).each do |message| %>
-            <div><%= message %></div>
+            <div class="bg-red-100 text-red-500 font-semibold p-2 m-1"><%= message %></div>
           <% end %>
         </div>
 
       <div>
-        <%= form.submit(class: "text-sky-700 border border-2 border-sky-500 bg-sky-100 p-2 font-bold rounded cursor-pointer hover:text-stone-50 hover:bg-sky-600") %>
-      </div>
+        <%= form.submit(class: "text-sky-700 border border-2 border-sky-500 bg-sky-100 p-1 font-bold rounded cursor-pointer hover:text-stone-50 hover:bg-sky-600") %>
+        <%= link_to "Back to Articles",
+            article_path, class: 
+            " text-blue-500 p-1 border border-blue-500 hover:text-stone-50 hover:bg-blue-500 rounded border-2 font-bold" %>
+        </div>
+      
     </div>
   <% end %>

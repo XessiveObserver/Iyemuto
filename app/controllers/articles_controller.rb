@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
-    def index
-    @articles = Article.all
+  def index
+    @articles = Article.includes(:publisher)
+    
   end
 
   def show
