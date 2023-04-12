@@ -1,7 +1,10 @@
 class ArticlesController < ApplicationController
   def index
     @articles = Article.includes(:publisher)
-    
+    @latest_articles = Article.order(created_at: :desc).limit(5)
+    @random_articles = Article.order(Arel.sql('RANDOM()')).limit(5)
+    @news_travel_category = Article.where(category: "Travel").order(:category)      
+    @news_politics_category = Article.where(category: "Politics").order(:category)      
   end
 
   def show
