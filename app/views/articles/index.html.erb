@@ -2,7 +2,7 @@
     
     <div class="sm:flex sm:flex-row gap-3">
         <div class="basis-9/12">
-        <h1 class="my-2 text-center text-5xl font-sans text-sky-500 bg-sky-100 p-2 rounded">Latest News</h1>
+        <h1 class="my-2 text-center text-5xl font-sans text-sky-500 bg-sky-50 p-2 rounded">Latest News</h1>
             <ul class="py-5 list-disc list-outside space-y-3 mx-auto">
                 <% @articles.each do |article| %>
                     <% if article.publisher == current_publisher || !current_publisher %>
@@ -15,28 +15,20 @@
             </ul>
         
             <ul class="py-5 list-disc list-outside space-y-3">
-                <% @news_travel_category.each do |article| %>
-                    <h1 class="my-2 text-center text-5xl font-sans text-sky-500 bg-sky-100 p-2 rounded"><%= article.category %></h1>
+                <% @categories.each do |category| %>
+                    <h1 class="my-2 text-center text-5xl font-sans text-sky-500 bg-sky-50 p-2 rounded"><%= category %></h1>
+                    <% @articles_by_category[category].each do |article| %>
                         <li class="font-bold list-none flex space-x-6 inline-block align-middle ">
                             <%= image_tag (article.article_photo), alt: "profile", class: "rounded w-64 " %>
                             <%= link_to article.title, article, class: "text-sky-500 mt-20 " %>
                         </li>
-                    
+                    <% end %>
                 <% end %>
             </ul>
-            <ul class="py-5 list-disc list-outside space-y-3">
-                <% @news_politics_category.each do |article| %>
-                    <h1 class="my-2 text-center text-5xl font-sans text-sky-500 bg-sky-100 p-2 rounded"><%= article.category %></h1>
-                        <li class="font-bold list-none flex space-x-6 inline-block align-middle ">
-                            <%= image_tag (article.article_photo), alt: "profile", class: "rounded w-64 " %>
-                            <%= link_to article.title, article, class: "text-sky-500 mt-20 " %>
-                        </li>
-                    
-                <% end %>
-            </ul>
+            
         </div>
         <div class="basis-3/12">
-        <h1 class="my-2 text-center text-5xl font-sans text-sky-500 bg-sky-100 p-2 rounded">Editors Pick</h1>
+        <h1 class="my-2 text-center text-5xl font-sans text-sky-500 bg-sky-50 p-2 rounded">Editors Pick</h1>
             <ul class="py-5 list-disc list-outside space-y-3">
             <% if @latest_articles.present? %>
                 <% @latest_articles.each do |article| %>
@@ -48,10 +40,10 @@
                     
                 <% end %>
             <% else %>
-                    <p>No new articles found.</p>
+                    <p>No editor picked articles found.</p>
             <% end %>
             </ul>
-        <h1 class="my-2 text-center text-5xl font-sans text-sky-500 bg-sky-100 p-2 rounded">General News</h1>
+        <h1 class="my-2 text-center text-5xl font-sans text-sky-500 bg-sky-50 p-2 rounded">General News</h1>
             <ul class="py-5 list-disc list-outside space-y-3">
             <% if @random_articles.present? %>
                 <% @latest_articles.each do |article| %>
@@ -63,7 +55,7 @@
                     
                 <% end %>
             <% else %>
-                    <p>No new articles found.</p>
+                    <p>No general news articles found.</p>
             <% end %>
             </ul>
         </div>
