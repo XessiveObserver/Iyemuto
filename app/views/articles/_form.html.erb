@@ -33,9 +33,11 @@
         </div>
 
       <div>
-        <%= form.submit(class: "text-sky-700 border border-2 border-sky-500 bg-sky-100 p-1 font-bold rounded cursor-pointer hover:text-stone-50 hover:bg-sky-600") %>
-        <%= link_to "Back to Article",
-            article_path(article), class: "text-blue-500 p-1 border border-blue-500 hover:text-stone-50 hover:bg-blue-500 rounded border-2 font-bold" %>
+        <%= form.submit(class: "text-sky-700 border border-2 border-sky-500 bg-sky-100 p-1
+         font-bold rounded cursor-pointer hover:text-stone-50 hover:bg-sky-600") %>
+        <%= link_to "Back to Articles", articles_path, 
+        class: "text-blue-500 p-1 border border-blue-500 hover:text-stone-50
+           hover:bg-blue-500 rounded border-2 font-bold" %>
         </div>
       
     </div>

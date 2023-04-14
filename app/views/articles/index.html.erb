@@ -7,8 +7,8 @@
                 <% @articles.each do |article| %>
                     <% if article.publisher == current_publisher || !current_publisher %>
                         <li class="font-bold list-none flex space-x-6 inline-block align-middle ">
-                            <%= image_tag (article.article_photo), alt: "profile", class: "rounded w-64 " %>
-                            <%= link_to article.title, article, class: "text-sky-500 mt-20 " %>
+                            <%= image_tag (article.article_photo.variant(resize_to_limit: [180, nil])), alt: "profile", class: "rounded " %>
+                            <%= link_to article.title, article, class: "text-sky-500 my-auto " %>
                         </li>
                     <% end %>
                 <% end %>
@@ -19,8 +19,8 @@
                     <h1 class="my-2 text-center text-5xl font-sans text-sky-500 bg-sky-50 p-2 rounded"><%= category %></h1>
                     <% @articles_by_category[category].each do |article| %>
                         <li class="font-bold list-none flex space-x-6 inline-block align-middle ">
-                            <%= image_tag (article.article_photo), alt: "profile", class: "rounded w-64 " %>
-                            <%= link_to article.title, article, class: "text-sky-500 mt-20 " %>
+                            <%= image_tag (article.article_photo.variant(resize_to_limit: [100, nil])), alt: "profile", class: "rounded" %>
+                            <%= link_to article.title, article, class: "text-sky-500 my-auto " %>
                         </li>
                     <% end %>
                 <% end %>
@@ -34,8 +34,8 @@
                 <% @latest_articles.each do |article| %>
                     
                         <li class="font-bold list-none flex space-x-6 inline-block align-middle ">
-                            <%= image_tag (article.article_photo), alt: "profile", class: "rounded w-64 " %>
-                            <%= link_to article.title, article, class: "text-sky-500 mt-20 " %>
+                            <%= image_tag (article.article_photo.variant(resize_to_limit: [100, nil])), alt: "profile", class: "rounded " %>
+                            <%= link_to article.title, article, class: "text-sky-500 my-auto " %>
                         </li>
                     
                 <% end %>
@@ -49,8 +49,8 @@
                 <% @latest_articles.each do |article| %>
                     
                         <li class="font-bold list-none flex space-x-6 inline-block align-middle ">
-                            <%= image_tag (article.article_photo), alt: "profile", class: "rounded w-64 " %>
-                            <%= link_to article.title, article, class: "text-sky-500 mt-20 " %>
+                            <%= image_tag (article.article_photo.variant(resize_to_limit: [120, nil])), alt: "profile", class: "rounded" %>
+                            <%= link_to article.title, article, class: "text-sky-500 my-auto " %>
                         </li>
                     
                 <% end %>
@@ -62,10 +62,5 @@
     </div>
     
 
-    <% if current_publisher %>            
-        <%= link_to "New Article",
-        new_article_path, class: 
-        "p-2 font-bold text-sky-500 p-1 border-2 border-sky-500 rounded
-        hover:text-stone-50 hover:bg-sky-500" %>
-     <% end %>
+    
 </div>
