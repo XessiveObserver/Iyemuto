@@ -34,7 +34,8 @@
                 <% @latest_articles.each do |article| %>
                     
                         <li class="font-bold list-none flex space-x-6 inline-block align-middle ">
-                            <%= image_tag (article.article_photo.variant(resize_to_limit: [100, nil])), alt: "profile", class: "rounded " %>
+                            <%= image_tag (article.article_photo.variant(resize_to_limit: [100, nil])),
+                             alt: "profile", class: "rounded " %>
                             <%= link_to article.title, article, class: "text-sky-500 my-auto " %>
                         </li>
                     
@@ -49,7 +50,8 @@
                 <% @latest_articles.each do |article| %>
                     
                         <li class="font-bold list-none flex space-x-6 inline-block align-middle ">
-                            <%= image_tag (article.article_photo.variant(resize_to_limit: [120, nil])), alt: "profile", class: "rounded" %>
+                            <%= image_tag (article.article_photo.variant(resize_to_limit: [120, nil])),
+                             alt: "profile", class: "rounded" %>
                             <%= link_to article.title, article, class: "text-sky-500 my-auto " %>
                         </li>
                     

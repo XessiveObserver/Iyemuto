@@ -21,7 +21,7 @@
     <hr / class="border-t border-slate-100 my-8">
 
     <div class="py-3"><%= @article.content %></div>
-    <div>
+    <div class="mx-auto">
         <h3 class="my-2 text-center text-5xl font-sans text-slate-500 bg-slate-100 p-2 rounded">
             More in <%= @article.category %>
         </h3>
@@ -29,14 +29,14 @@
                     <% if @related_articles.present? %>
                         <% @related_articles.each do |article| %>
                             <ul class="inline-flex text-center">
-                                <li class="flex flex-auto inline-block align-middle">
+                                <li class="flex flex-auto inline-block">
                                 
                                 <% if @article.article_photo.attached? %>
                                 
                                 <%= link_to image_tag(article.article_photo.variant(resize_to_limit: [150, nil]),
-                                class: 'article-thumbnail rounded mx-auto my-auto p-2'), article %>
+                                class: 'mx-auto my-auto h-32 p-2'), article %>
                                     <% end %>
-                                <%= link_to article.title, article_path(article), class: "my-auto text-sky-400 font-semibold" %>
+                                <%= link_to article.title, article_path(article), class: "my-auto mx-auto text-sky-400 font-semibold" %>
                                 </li>
                             </ul>    
                         <% end %>
