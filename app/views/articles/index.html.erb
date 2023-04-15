@@ -1,4 +1,15 @@
 <div class="container mx-auto">
+<% if publisher_signed_in? %>
+    <div class="sm:flex p-5 basis-12">
+           
+            <%= link_to "New Article",
+                        new_article_path, class: 
+                        "p-2 text-white bg-sky-500 text-sm font-semibold p-1 
+                        rounded hover:text-sky-500 hover:bg-white border
+                         border-sky-500 border-2 text-center" %>
+    </div>
+    <hr / class="border-t border-slate-100 my-8 font-bold h-2">
+<% end %>
     
     <div class="sm:flex sm:flex-row gap-3">
         <div class="basis-9/12">
@@ -6,8 +17,9 @@
             <ul class="py-5 list-disc list-outside space-y-3 mx-auto">
                 <% @articles.each do |article| %>
                     <% if article.publisher == current_publisher || !current_publisher %>
-                        <li class="font-bold list-none flex space-x-6 inline-block align-middle ">
-                            <%= image_tag (article.article_photo.variant(resize_to_limit: [180, nil])), alt: "profile", class: "rounded " %>
+                        <li class="font-bold list-none flex space-x-6 inline-block align-middle">
+                            <%= image_tag (article.article_photo.variant(resize_to_limit: [180, nil])),
+                             alt: "profile", class: "rounded " %>
                             <%= link_to article.title, article, class: "text-sky-500 my-auto " %>
                         </li>
                     <% end %>

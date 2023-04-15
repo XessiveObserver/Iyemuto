@@ -13,8 +13,8 @@ relative py-5 h-16   md:py-0 px-5
   <div class="hidden w-full md:flex md:items-center md:justify-between md:w-auto " id="menu">
     <ul class="text-base pt-4 md:flex md:justify-between md:pt-0 space-x-3">
       <% if publisher_signed_in? %>
-         <li><%= link_to "Profile", semibold_pages_dashboard_path, class: "font-semibold antialiased text-sky-700 hover:underline" %></li>
-      <li class="font-semibold antialiased text-sky-700 "> Welcome <%= current_publisher.username %> </li> 
+         <li><%= link_to "Profile", normal_pages_dashboard_path, class: "font-semibold antialiased text-white hover:underline" %></li>
+      <li class="font-semibold antialiased text-white "> Welcome <%= current_publisher.username %> </li> 
       <%= link_to "Sign out", destroy_publisher_session_path, data: { turbo_method: :delete }, class: "font-semibold font-sans antialiased  hover:underline" %> 
       
         <li>
