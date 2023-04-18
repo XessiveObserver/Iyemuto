@@ -16,6 +16,7 @@
     <%= render "layouts/notices" %>
     <main class="container mx-auto mt-2 px-5 flex">
       <%= yield %>
+      <%= turbo_frame_tag "remote_modal", target: "_top" %>
     </main>
   </body>
 </html>

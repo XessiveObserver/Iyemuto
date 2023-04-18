@@ -28,17 +28,17 @@
 
                     <% if @related_articles.present? %>
                         <% @related_articles.each do |article| %>
-                            <ul class="inline-flex text-center">
-                                <li class="flex flex-auto inline-block">
+                            <div class="flex justify-center items-center flex-wrap inline-flex font-semibold text-center">
+                                <div>
                                 
-                                <% if @article.article_photo.attached? %>
-                                
-                                <%= link_to image_tag(article.article_photo.variant(resize_to_limit: [150, nil]),
-                                class: 'mx-auto my-auto h-32 p-2'), article %>
-                                    <% end %>
-                                <%= link_to article.title, article_path(article), class: "my-auto mx-auto text-sky-400 font-semibold" %>
-                                </li>
-                            </ul>    
+                                    <% if @article.article_photo.attached? %>
+                                    
+                                    <%= link_to image_tag(article.article_photo.variant(resize_to_limit: [150, nil]),
+                                    class: 'mx-auto my-auto h-32 p-2'), article %>
+                                        <% end %>
+                                    <%= link_to article.title, article_path(article), class: "my-auto mx-auto text-sky-400 font-semibold" %>
+                                </div>
+                            </div>    
                         <% end %>
                     <% else %>
                             <p>No related articles found.</p>

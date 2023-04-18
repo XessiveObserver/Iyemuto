@@ -11,29 +11,38 @@
     <hr / class="border-t border-slate-100 my-8 font-bold h-2">
 <% end %>
     
-    <div class="sm:flex sm:flex-row gap-3">
+    <div class="sm:flex sm:flex-row gap-5">
         <div class="basis-9/12">
         <h1 class="my-2 text-center text-5xl font-sans text-sky-500 bg-sky-50 p-2 rounded">Latest News</h1>
-            <ul class="py-5 list-disc list-outside space-y-3 mx-auto">
+            
+           
                 <% @articles.each do |article| %>
                     <% if article.publisher == current_publisher || !current_publisher %>
-                        <li class="font-bold list-none flex space-x-6 inline-block align-middle">
-                            <%= image_tag (article.article_photo.variant(resize_to_limit: [180, nil])),
-                             alt: "profile", class: "rounded " %>
-                            <%= link_to article.title, article, class: "text-sky-500 my-auto " %>
-                        </li>
+                        <div class="flex justify-center items-center flex-wrap inline-flex font-semibold text-center mt-5">
+                            <div>
+                                <%= link_to image_tag(article.article_photo.variant(resize_to_limit: [180, nil]),
+                                class: "rounded mx-auto h-40"),article %>
+                            
+                                <%= link_to article.title, article, class: "text-sky-500 " %>
+
+                            </div>
+                        </div>
                     <% end %>
                 <% end %>
-            </ul>
+           
         
-            <ul class="py-5 list-disc list-outside space-y-3">
+        
+            
                 <% @categories.each do |category| %>
-                    <h1 class="my-2 text-center text-5xl font-sans text-sky-500 bg-sky-50 p-2 rounded"><%= category %></h1>
+                    <h1 class="my-5 text-center text-5xl font-sans text-sky-500 bg-sky-50 p-2 mt-5 rounded"><%= category %></h1>
                     <% @articles_by_category[category].each do |article| %>
-                        <li class="font-bold list-none flex space-x-6 inline-block align-middle ">
-                            <%= image_tag (article.article_photo.variant(resize_to_limit: [100, nil])), alt: "profile", class: "rounded" %>
-                            <%= link_to article.title, article, class: "text-sky-500 my-auto " %>
-                        </li>
+                        <div class="flex justify-center items-center flex-wrap inline-flex font-semibold text-center">
+                            <div>
+                                <%= link_to image_tag(article.article_photo.variant(resize_to_limit: [110, nil]),
+                                class: "rounded h-40"), article %>
+                                <%= link_to article.title, article, class: "text-sky-500" %>
+                            </div>
+                        </div>
                     <% end %>
                 <% end %>
             </ul>
@@ -46,8 +55,8 @@
                 <% @latest_articles.each do |article| %>
                     
                         <li class="font-bold list-none flex space-x-6 inline-block align-middle ">
-                            <%= image_tag (article.article_photo.variant(resize_to_limit: [100, nil])),
-                             alt: "profile", class: "rounded " %>
+                            <%= link_to image_tag(article.article_photo.variant(resize_to_limit: [100, nil]),
+                            class: "rounded "), article %>
                             <%= link_to article.title, article, class: "text-sky-500 my-auto " %>
                         </li>
                     
@@ -62,8 +71,8 @@
                 <% @latest_articles.each do |article| %>
                     
                         <li class="font-bold list-none flex space-x-6 inline-block align-middle ">
-                            <%= image_tag (article.article_photo.variant(resize_to_limit: [120, nil])),
-                             alt: "profile", class: "rounded" %>
+                            <%= link_to image_tag(article.article_photo.variant(resize_to_limit: [100, nil]),
+                            class: "rounded"), article  %>
                             <%= link_to article.title, article, class: "text-sky-500 my-auto " %>
                         </li>
                     
