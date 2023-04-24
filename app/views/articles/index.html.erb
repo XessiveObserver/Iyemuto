@@ -19,7 +19,7 @@
                 <% @categories.each do |category| %>
                     <h1 class="my-5 text-center text-5xl font-sans text-sky-500 bg-sky-50 p-2 mt-5 rounded"><%= category %></h1>
                     <% @articles_by_category[category].each do |article| %>
-                        <div class="flex justify-center items-center flex-wrap inline-flex font-semibold text-center">
+                        <div class="justify-center items-center flex-wrap inline-flex font-semibold text-center">
                             <div>
                                 <%= link_to image_tag(article.article_photo.variant(resize_to_limit: [110, nil]),
                                 class: "rounded h-36 mx-auto"), article %>
